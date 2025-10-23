@@ -30,3 +30,12 @@ function expensiveFn(){
 }
 
 window.addEventListener("resize",handleThrotling)
+
+
+///Differnce between Debouncing and Throtling?
+    // i) Debouncing:
+        //Executes the function only after a fixed delay since the last event.
+        //Wait until the user stops doing something
+    // ii) Throttling:
+        //Ensures the function runs at most once every X milliseconds
+        //Limit how often the function can run.
