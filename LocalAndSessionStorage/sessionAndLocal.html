@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=\, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<form onsubmit=handleFormSubmit(event)>
+    <input type="text"id="name" placeholder="Enter the name">
+    <button type="submit">Submit</button>
+</form>
+
+<h1 id="name-label"></h1>
+<button style="margin-top: 50px;" onclick=getName()>Get my name</button>
+
+<ul id="item">
+    <li>Adidas shoe</li>
+    <li>Nike shoe</li>
+    <li>Puma shoe</li>
+</ul>
+
+
+<button onclick=showCart()>show my cart</button>
+<ul id="cartList"></ul>
+
+
+<script src="./sessionAndLocal.js"></script>
+</body>
+</html>

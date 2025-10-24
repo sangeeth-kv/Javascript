@@ -85,25 +85,26 @@ const vehicle={
     category:"cars",
 }
 
-let getVehicle=function(){
-    console.log("This vehicle is in ",this.category," cateogry")
+let getVehicle=function(owner,place){
+    console.log("This vehicle is in ",this.category," cateogry owned by ",owner," from ",place)
 }
 
-const newGetVehic=getVehicle.bind(vehicle)  
-newGetVehic()//like this we normaly use bind
+const newGetVehic=getVehicle.bind(vehicle,"Aravind")  
+newGetVehic("kannur")//like this we normaly use bind
 //we will create polyfil
 
 //here bind fn is applied for all funciton so;
 //bind fn return another function.
 Function.prototype.myBind=function(...args){ //here all funciton can use this my bind funciton
     let obj=this
-    return function(){ //bind return another function, inside this function we want to call the orginal function we can get that orginal fn using this
+    let params=args.slice(1)
+    return function(...args2){ //bind return another function, inside this function we want to call the orginal function we can get that orginal fn using this
                          //beacause we call myBind like this orignalFn.myBind() soo here myBind this refers to orignalFn
-        obj.call(args[0])
+        obj.apply(args[0],[...params, ...args2])
     }
 }
 
 
-let newMyBind=getVehicle.myBind(vehicle)
+let newMyBind=getVehicle.myBind(vehicle,"aravindh")
 console.log(newMyBind)
-newMyBind()
+newMyBind("KoiKode")
